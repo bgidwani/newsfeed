@@ -5,7 +5,7 @@ import { ArticlesTopheadlinesComponent } from './articles-topheadlines/articles-
 
 
 const routes: Routes = [
-  { path: 'articles', component: ArticlesTechnologyComponent },
+  { path: 'technology', component: ArticlesTechnologyComponent },
   { path: 'topheadlines', component: ArticlesTopheadlinesComponent },
   { path: '', component: ArticlesTopheadlinesComponent }
 ];
