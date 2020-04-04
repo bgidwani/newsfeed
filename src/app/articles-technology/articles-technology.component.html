@@ -6,6 +6,7 @@
           <mat-card-title><a href="{{ article.url }}">{{ article.title }}</a></mat-card-title>
           <mat-card-subtitle>{{ article.source.name }}</mat-card-subtitle>
           <p>{{ article.description }}</p>
+          <mat-card-subtitle><small>Updated: {{ article.publishedAt | date:'short' }}</small></mat-card-subtitle>
         </div>
         <img mat-card-image class="img-article" src="{{ article.urlToImage }}" alt="" />
       </div>

@@ -5,13 +5,14 @@
         <div fxFlex="90%">
           <mat-card-title><a href="{{ article.url }}">{{ article.title }}</a></mat-card-title>
           <mat-card-subtitle>{{ article.source.name }}</mat-card-subtitle>
-          <p>{{ article.description }}</p>
+          <p>{{ article.description }} </p>
+          <mat-card-subtitle><small>Updated: {{ article.publishedAt | date:'short' }}</small></mat-card-subtitle>
         </div>
         <img mat-card-image class="img-article" src="{{ article.urlToImage }}" alt="" />
       </div>
     </mat-card-content>
     <mat-card-actions class="action-buttons">
-      <a mat-button class="fullcoverage" href="{{ article.url }}">
+      <a mat-button class="fullcoverage" target="_blank" href="{{ article.url }}">
         <mat-icon>description</mat-icon> View Full Coverage
       </a>
     </mat-card-actions>
