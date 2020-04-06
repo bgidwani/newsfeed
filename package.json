@@ -1,6 +1,8 @@
 {
   "name": "newsfeed",
   "version": "0.0.1",
+  "description": "Repo containing Angular app for displaying static/dynamic content",
+  "author": "Bharat Gidwani",
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o",

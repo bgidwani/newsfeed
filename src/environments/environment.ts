@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  newsApiKey: '',
+  newsApi: 'http://localhost:9000/newsapi',
 };
 
 /*

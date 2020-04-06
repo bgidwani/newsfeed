@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
@@ -8,22 +8,31 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class NewsapiService {
-  private apiKey = environment.newsApiKey;
-  private baseUrl = 'https://newsapi.org/v2';
+  private newsApi = environment.newsApi;
 
   constructor(private http: HttpClient) {}
 
   getTopHeadlines(): Observable<any> {
-    const url = `${this.baseUrl}/top-headlines?language=en&country=us&apiKey=${this.apiKey}`;
-    return this.getNewsData(url);
+    return this.getNewsData();
   }
 
   getArticlesTechnology(): Observable<any> {
-    const url = `${this.baseUrl}/top-headlines?category=technology&language=en&country=us&apiKey=${this.apiKey}`;
-    return this.getNewsData(url);
+    return this.getNewsData('technology');
   }
 
-  private getNewsData(url: string): Observable<any> {
-    return this.http.get(url).pipe(map((data: any) => data.articles));
+  private getNewsData(newsCategory?: string): Observable<any> {
+    let body = {};
+    const httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    if (newsCategory) {
+      body = {
+        category: newsCategory,
+      };
+    }
+
+    return this.http
+      .post(this.newsApi, body, { headers: httpHeaders })
+      .pipe(map((data: any) => JSON.parse(data).articles));
   }
 }
