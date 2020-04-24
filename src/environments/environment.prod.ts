@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  newsApi: 'https://bharat-api.netlify.com/.netlify/functions/newsapi',
+  newsApi: 'https://bharat-api.netlify.app/.netlify/functions/newsapi',
 };
