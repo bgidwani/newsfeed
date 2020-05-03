@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { GtagModule } from 'angular-gtag';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,7 +23,7 @@ import { ArticlesTopheadlinesComponent } from './articles-topheadlines/articles-
     AppComponent,
     NavbarComponent,
     ArticlesTechnologyComponent,
-    ArticlesTopheadlinesComponent
+    ArticlesTopheadlinesComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,8 +38,9 @@ import { ArticlesTopheadlinesComponent } from './articles-topheadlines/articles-
     MatIconModule,
     MatListModule,
     FlexLayoutModule,
+    GtagModule.forRoot({ trackingId: 'UA-165265113-1', trackPageviews: true }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
